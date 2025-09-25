@@ -1,0 +1,87 @@
+
+# 📌 Project Assignment (Boss → Employee)
+
+**Project Title:** Employee Management System (Console-based)
+
+**Objective:**
+You will design and implement a simple console-based Employee Management System in **Java** 
+that demonstrates your understanding of **OOP principles** (inheritance, polymorphism, abstraction, 
+interface) along with **basic programming constructs** (loops, methods, getters & setters).
+
+---
+
+## 🔹 Requirements
+
+### 1. Class Design
+
+* **Abstract Class: `Employee`**
+
+  * Fields: `id`, `name`, `salary`
+  * Methods:
+
+    * `displayDetails()` → abstract
+    * Getters & Setters for all fields
+
+* **Subclass: `FullTimeEmployee`**
+
+  * Extra Field: `bonus`
+  * Override `displayDetails()` to show all info
+
+* **Subclass: `PartTimeEmployee`**
+
+  * Extra Field: `hoursWorked`
+  * Override `displayDetails()`
+
+### 2. Interface
+
+* Create an interface `Payable` with method:
+
+  * `double calculatePay();`
+* Both subclasses (`FullTimeEmployee`, `PartTimeEmployee`) should **implement** this.
+
+### 3. Main Program (`EmployeeManagementSystem`)
+
+* Menu-driven console app using **loops**:
+
+  * **1. Add Employee** (full-time or part-time)
+  * **2. Display All Employees**
+  * **3. Calculate Pay for Each Employee**
+  * **4. Exit**
+* Use **ArrayList<Employee>** to store employees.
+
+### 4. Polymorphism in Action
+
+* Store all employees in a single `ArrayList<Employee>`.
+* When calling `displayDetails()` or `calculatePay()`, the correct subclass method should be executed.
+
+---
+
+## 🔹 Deliverables
+
+1. **Working Console Application** – Must compile & run without errors.
+2. **Code Readability** – Proper indentation, comments, meaningful variable/method names.
+3. **Documentation (README)** – Explain:
+
+   * How your code demonstrates inheritance, polymorphism, abstraction, and interfaces.
+   * Example input/output screenshots.
+
+---
+
+## 🔹 Stretch Goals (Optional – impress your boss 😉)
+
+* Add **search employee by ID**.
+* Add **remove employee by ID**.
+* Add **update employee details**.
+* Save/load employees from a **file** (basic persistence).
+
+---
+
+## 🔹 Timeline
+
+* **Day 1–2:** Design classes & UML sketch.
+* **Day 3–4:** Implement base features.
+* **Day 5:** Test & debug.
+* **Day 6–7:** Add stretch goals + documentation.
+
+---
+
