@@ -21,10 +21,10 @@ public class PartTimeEmployee extends Employee{
 
 @Override
     public void displayDetails() {
-        System.out.println("Full-Time Employee [ID=" + getId() + 
-                           ", Name=" + getName() + 
-                           ", Salary=" + getSalary() + 
-                           ", bonus=" + getHoursWorked() + "]");
+        System.out.println("Part-Time Employee [ID = " + getId() + 
+                           ", Name = " + getName() + 
+                           ", Salary =" + getSalary() + 
+                           ", Howked Hours =" + getHoursWorked() + "]");
     }
 
 }
