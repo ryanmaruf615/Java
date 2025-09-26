@@ -23,8 +23,8 @@ public class FullTimeEmployee extends Employee {
     public void displayDetails() {
         System.out.println("Full-Time Employee [ID=" + getId() + 
                            ", Name=" + getName() + 
-                           ", Salary=" + getSalary() + ", bonus=" + getBonus() + "]");
+                           ", Salary=" + getSalary() + 
+                           ", bonus=" + getBonus() + "]");
 
-    
 }
 }
