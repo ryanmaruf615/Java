@@ -2,23 +2,15 @@ package Employee_Management_System;
 
 public class PartTimeEmployee extends Employee implements Payable{
 
-    private double hoursWorked ;
+    private int hoursWorked ;
     private double hourlyRate;
 
 
-    public PartTimeEmployee(int id, String name, double salary,double hoursWorked,double hourlyRate)
+    public PartTimeEmployee(int id, String name, double hourlyRate, int hoursWorked)
     {
-        super(id,name,salary);
-        this.hoursWorked=hoursWorked;
+        super(id,name,0);
         this.hourlyRate= hourlyRate ;
-    }
-    
-    public void setHoursWorked(double hoursWorked) {
-        this.hoursWorked = hoursWorked;
-    }
-    
-    public double getHoursWorked() {
-        return hoursWorked;
+        this.hoursWorked=hoursWorked;
     }
 
     public void setHourlyRate(double hourlyRate)
@@ -30,7 +22,16 @@ public class PartTimeEmployee extends Employee implements Payable{
     {
         return hourlyRate;
     }
+    
+    public void setHoursWorked(int hoursWorked) {
+        this.hoursWorked = hoursWorked;
+    }
+    
+    public int getHoursWorked() {
+        return hoursWorked;
+    }
 
+    
 @Override
     public double calculatePay()
     {
