@@ -1,0 +1,152 @@
+downloads-organizer/
+│
+├── README.md              # Quick project description
+├── config.yaml            # Simple extension→category mapping
+│
+└── src/
+    └── main/
+        └── java/
+            └── com/
+                └── organizer/
+                    ├── App.java            # Entry point (main method)
+                    ├── FileScanner.java    # List files in Downloads
+                    ├── ExtensionMapper.java# Decide category based on extension
+                    ├── FileMover.java      # Create folders + move files
+                    └── FileOrganizer.java  # Orchestrates everything
+
+🔑 What each class does (MVP)
+
+App.java
+
+Starts the program.
+
+Defines path to Downloads.
+
+Calls FileOrganizer to run everything.
+
+FileScanner.java
+
+Scans the folder.
+
+Returns a list of files.
+
+ExtensionMapper.java
+
+Reads the file extension.
+
+Decides which folder (category) it belongs to.
+
+Uses a hardcoded map at first (later: move to config.yaml).
+
+FileMover.java
+
+Creates category folders if missing.
+
+Moves files into the correct folder.
+
+Simple conflict handling → rename with (1).
+
+FileOrganizer.java
+
+Core controller.
+
+Uses FileScanner → ExtensionMapper → FileMover.
+
+# 📂 Project Structure (Downloads Organizer)
+
+```
+downloads-organizer/
+│
+├── README.md                 # Project description & usage guide
+├── pom.xml / build.gradle    # Build tool config (choose Maven or Gradle)
+├── config/                   
+│   └── organizer.yaml         # External config file (mapping, rules, etc.)
+├── logs/                     # Log output (ignored in git)
+│
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── organizer/
+│   │   │           ├── App.java              # Entry point (main method)
+│   │   │           │
+│   │   │           ├── config/
+│   │   │           │   ├── ConfigLoader.java # Loads and parses config
+│   │   │           │   └── Config.java       # Holds config fields
+│   │   │           │
+│   │   │           ├── core/
+│   │   │           │   ├── FileScanner.java  # Lists files in target folder
+│   │   │           │   ├── FileOrganizer.java# Main logic: categorize & move
+│   │   │           │   ├── FileMover.java    # Handles moving + conflicts
+│   │   │           │   ├── ExtensionMapper.java # Maps ext → category
+│   │   │           │   └── ConflictHandler.java # Rename / overwrite / skip
+│   │   │           │
+│   │   │           ├── util/
+│   │   │           │   ├── Logger.java       # Simple logging wrapper
+│   │   │           │   └── FileUtils.java    # Common helper methods
+│   │   │           │
+│   │   │           └── watcher/
+│   │   │               └── FolderWatcher.java # (optional) live monitoring
+│   │   │
+│   │   └── resources/
+│   │       └── logback.xml   # Logging framework config (if using SLF4J)
+│   │
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── organizer/
+│                   ├── FileScannerTest.java
+│                   ├── FileOrganizerTest.java
+│                   ├── ConflictHandlerTest.java
+│                   └── ExtensionMapperTest.java
+│
+└── target/ or build/          # Compiled output (ignored in git)
+```
+
+---
+
+# 🔑 Explanation of Folders & Classes
+
+### **Main app entry**
+
+* `App.java` → Starts program, loads config, calls `FileOrganizer`.
+
+### **Config handling**
+
+* `ConfigLoader.java` → Reads `organizer.yaml` (or JSON/properties).
+* `Config.java` → Plain object with fields like `scanFolder`, `categories`, `conflictStrategy`.
+
+### **Core logic**
+
+* `FileScanner.java` → Gets list of files from Downloads.
+* `ExtensionMapper.java` → Decides category based on extension.
+* `FileOrganizer.java` → High-level orchestration (calls scanner, mapper, mover).
+* `FileMover.java` → Actually moves files into folders.
+* `ConflictHandler.java` → Ensures safe handling of name clashes.
+
+### **Utils**
+
+* `Logger.java` → Wraps logging framework.
+* `FileUtils.java` → Common helper functions (e.g., get extension, check hidden, safe rename).
+
+### **Watcher (optional)**
+
+* `FolderWatcher.java` → Uses Java NIO WatchService for real-time monitoring.
+
+### **Tests**
+
+* Unit tests for each class.
+* Sandbox folder tests for integration.
+
+---
+
+# 🚀 Workflow
+
+1. `App.java` starts → loads `ConfigLoader`.
+2. `ConfigLoader` returns `Config`.
+3. `FileScanner` scans target folder.
+4. For each file:
+
+   * `ExtensionMapper` decides category.
+   * `FileMover` moves it (asking `ConflictHandler` if clash).
+5. `Logger` records actions.

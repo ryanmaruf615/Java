@@ -1,0 +1,115 @@
+# 📋 One-Page Checklist — Java Downloads Organizer
+
+### 🔹 Setup
+
+* [ ] Define MVP scope (basic scan + move by type).
+* [ ] Set up project repo & test sandbox folder.
+* [ ] Write README with goals.
+
+### 🔹 Core Functionality
+
+* [ ] **File Scanner** → list all files in Downloads.
+* [ ] **Extension Detection** → normalize case, handle missing extension.
+* [ ] **Mapping Rules** → extension → category.
+* [ ] **Dry-Run Mode** → show actions without moving.
+* [ ] **Folder Creation** → ensure subfolders exist.
+* [ ] **Move Files** → safely relocate into correct subfolders.
+* [ ] **Conflict Handling** → rename/append timestamp instead of overwrite.
+
+### 🔹 Robustness
+
+* [ ] Handle hidden/system files.
+* [ ] Handle files with no extension.
+* [ ] Handle locked/large files gracefully.
+* [ ] Logging (console + optional file).
+
+### 🔹 Configuration
+
+* [ ] External config file (rules, defaults, exclusions).
+* [ ] Reload config without recompiling (optional).
+
+### 🔹 Advanced (Optional)
+
+* [ ] Watcher mode (auto organize when new files appear).
+* [ ] Schedule support (cron/Task Scheduler).
+* [ ] GUI for preview + one-click organize.
+* [ ] Undo feature (track history).
+* [ ] Organize by **date** or **metadata**.
+* [ ] Duplicate detection.
+
+### 🔹 Testing
+
+* [ ] Unit tests (extension parsing, conflict strategy, path building).
+* [ ] Integration tests with sandbox files.
+* [ ] Manual cases:
+
+  * [ ] Same-name files
+  * [ ] Upper/lowercase extensions
+  * [ ] No extension
+  * [ ] Hidden files
+  * [ ] Large/locked file
+
+### 🔹 Delivery
+
+* [ ] Package into runnable JAR.
+* [ ] Provide usage docs & config example.
+* [ ] (Optional) Native installer or startup service.
+
+---
+
+# ⚙️ Config Schema (Conceptual)
+
+This is the **structure** your external config file should support.
+You can later decide format: `.json`, `.yaml`, or `.properties`.
+
+---
+
+### **Top-level fields**
+
+* `scanFolder` → which folder to organize.
+* `categories` → mapping of extensions to folder names.
+* `defaultCategory` → fallback if no mapping found.
+* `conflictStrategy` → how to handle duplicates (`rename`, `overwrite`, `skip`).
+* `excludePatterns` → list of regex/wildcards to skip.
+* `hiddenFiles` → whether to skip hidden/system files (`true`/`false`).
+* `dryRun` → default mode (`true`/`false`).
+* `watchMode` → run continuously? (`true`/`false`).
+* `logFile` → optional log path.
+* `maxFileSizeMB` → skip files above size limit (optional).
+
+---
+
+### **Example (YAML style, easier to read)**
+
+```yaml
+scanFolder: "C:/Users/Maruf/Downloads"
+
+categories:
+  pdf: "PDFs"
+  jpg: "Images"
+  jpeg: "Images"
+  png: "Images"
+  docx: "Documents"
+  doc: "Documents"
+  zip: "Archives"
+  rar: "Archives"
+  mp4: "Videos"
+  mp3: "Music"
+
+defaultCategory: "Others"
+
+conflictStrategy: "rename"   # options: rename, overwrite, skip
+excludePatterns:
+  - ".*\\.tmp"       # skip temp files
+  - ".*~"            # skip backup files
+
+hiddenFiles: false
+dryRun: true
+watchMode: false
+logFile: "organizer.log"
+maxFileSizeMB: 500
+```
+
+---
+
+Would you like me to also make a **ready-to-use test config file** with 10–15 common extensions already mapped, so you can just drop it in and tweak later?
