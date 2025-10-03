@@ -3,30 +3,74 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+
+class student{
+    
+    int age;
+    String name;
+
+    public student(int age, String name)
+    {
+        
+        this.age = age;
+        this.name = name;
+    }
+
+    public String toString()
+    {
+        return "Student name: "+name+" , age: "+age;
+    }
+
+}
+
+
+
 public class mapex {
     public static void main(String[] args)
     {
-        Comparator com = new Comparator<Integer>() {
-            public int compare(Integer i , Integer J)
+        // Comparator<Integer> com = new Comparator<Integer>() {
+
+        //     public int compare(Integer i , Integer J)
+        //     {
+        //         if(i%10 > J%10) 
+        //             return 1;
+        //         else 
+        //             return -1; 
+        //     }
+        // };
+
+
+        Comparator<student> com =  new Comparator<student>() {
+            public int compare(student s1 , student s2)
             {
-                if(i%10 > J%10) 
+                if(s1.age > s2.age)
                     return 1;
-                else 
-                    return -1; 
+                else
+                    return -1;    
             }
+            
         };
 
+        List<student> studs = new ArrayList<>();
+        studs.add(new student(28,"maruf"));
+        studs.add(new student(26,"mou"));
+        studs.add(new student(35,"jamal"));
+        studs.add(new student(30,"tonny"));
+
+        /* 
         List<Integer> nums = new ArrayList<>();
         nums.add(72);
         nums.add(21);    
         nums.add(84);
         nums.add(45);    
         nums.add(17);
+        */
 
-        Collections.sort(nums,com);
+        Collections.sort(studs,com);
+        
 
-        System.out.println(nums);
-
-
+    for(student s : studs)
+        System.out.println(s);
     }
 }
+
