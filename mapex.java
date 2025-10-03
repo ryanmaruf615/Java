@@ -29,7 +29,6 @@ public class mapex {
     public static void main(String[] args)
     {
         // Comparator<Integer> com = new Comparator<Integer>() {
-
         //     public int compare(Integer i , Integer J)
         //     {
         //         if(i%10 > J%10) 
@@ -39,17 +38,21 @@ public class mapex {
         //     }
         // };
 
-
-        Comparator<student> com =  new Comparator<student>() {
-            public int compare(student s1 , student s2)
-            {
-                if(s1.age > s2.age)
-                    return 1;
-                else
-                    return -1;    
-            }
+        // with lambda function
+        // Comparator<Integer> com = (Integer i , Integer j) -> i%10 > j%10 ? 1 : -1 ;
             
-        };
+
+        // Comparator<student> com = (student s1 , student s2) ->
+        //     {
+        //         // if(s1.age > s2.age)
+        //         //     return 1;
+        //         // else
+        //         //     return -1;    
+        //         return s1.age > s2.age ? 1 : -1 ;
+        //     };
+
+        // with lambda function
+        Comparator<student> com = ( s1 ,s2) ->  s1.age > s2.age ? 1 : -1 ;
 
         List<student> studs = new ArrayList<>();
         studs.add(new student(28,"maruf"));
