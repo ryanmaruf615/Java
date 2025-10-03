@@ -2,13 +2,13 @@
 
 ### 🔹 Setup
 
-* [ ] Define MVP scope (basic scan + move by type).
-* [ ] Set up project repo & test sandbox folder.
+* [ done] Define MVP scope (basic scan + move by type).
+* [done ] Set up project repo & test sandbox folder.
 * [ ] Write README with goals.
 
 ### 🔹 Core Functionality
 
-* [ ] **File Scanner** → list all files in Downloads.
+* [ done] **File Scanner** → list all files in Downloads.
 * [ ] **Extension Detection** → normalize case, handle missing extension.
 * [ ] **Mapping Rules** → extension → category.
 * [ ] **Dry-Run Mode** → show actions without moving.
