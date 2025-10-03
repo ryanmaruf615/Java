@@ -1,10 +1,10 @@
 
 import java.nio.file.*;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileScanner {
     private String directoryPath = "../test_download_folder";
-
 
     
     public void setDirectoryPath(String directoryPath) {
@@ -17,25 +17,31 @@ public class FileScanner {
 
     // method to scan directory and count number of files and list files
     public void scanDirectory() {
-        System.out.println("Scanning directory: " + getDirectoryPath());
         Path p = Paths.get(getDirectoryPath());
-        System.out.println(Files.exists(p));
-
-        //normally would use try with resources
-
-        // try (Stream<Path> stream = Files.list(p)) {
-        //     for (Path file : stream.toList()) {
-        //     System.out.println(file.getFileName());
-        //     }
-
-        // with lambda function
+    
         try
         {
-        long count = Files.list(p).count();
-        System.out.println("Total files: " + count);
+            
+        //to count files numbers
+        //long count = Files.list(p).count();
+        //System.out.println("Total files: " + count);
+
+        // to list files
+        List<String> fileNames = new ArrayList<>();
+
+        //retrive the list of files and add to arraylist
         Files.list(p).forEach(file -> {
-            System.out.println(file.getFileName());
+           String names =  file.getFileName().toString();
+            fileNames.add(names);
         });
+
+        
+
+        for(String f : fileNames)
+        {
+            System.out.println(" this is from list : " + f );
+        }
+
     } 
         catch (Exception e) {
             System.out.println("Error scanning directory: " + e.getMessage());
