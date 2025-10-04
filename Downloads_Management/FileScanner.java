@@ -35,11 +35,12 @@ public class FileScanner {
             fileNames.add(names);
         });
 
-        
-
-        for(String f : fileNames)
+        //get the extensions 
+        for(String names : fileNames)
         {
-            System.out.println(" this is from list : " + f );
+            int dotIndex = names.lastIndexOf('.');
+            String extension = (dotIndex != -1) ? names.substring(dotIndex + 1) : "";
+            System.out.println("File: " + names + " | Extension: " + extension);
         }
 
     } 
