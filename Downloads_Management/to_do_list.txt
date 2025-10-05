@@ -9,7 +9,7 @@
 ### 🔹 Core Functionality
 
 * [ done] **File Scanner** → list all files in Downloads.
-* [ ] **Extension Detection** → normalize case, handle missing extension.
+* [ done ] **Extension Detection** → normalize case, handle missing extension.
 * [ ] **Mapping Rules** → extension → category.
 * [ ] **Dry-Run Mode** → show actions without moving.
 * [ ] **Folder Creation** → ensure subfolders exist.

@@ -35,13 +35,9 @@ public class FileScanner {
             fileNames.add(names);
         });
 
-        //get the extensions 
-        for(String names : fileNames)
-        {
-            int dotIndex = names.lastIndexOf('.');
-            String extension = (dotIndex != -1) ? names.substring(dotIndex + 1) : "";
-            System.out.println("File: " + names + " | Extension: " + extension);
-        }
+        // sent the list of extensions to FileExtensionMapper class 
+        ExtensionMapper.printFilesExtentions(fileNames);
+
 
     } 
         catch (Exception e) {
