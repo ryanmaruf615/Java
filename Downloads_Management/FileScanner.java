@@ -36,7 +36,9 @@ public class FileScanner {
         });
 
         // sent the list of extensions to FileExtensionMapper class 
-        ExtensionMapper.printFilesExtentions(fileNames);
+        // Create an instance of ExtensionMapper and call the method
+        ExtensionMapper extensionMapper = new ExtensionMapper();
+        extensionMapper.printFilesExtentions(fileNames);
 
 
     } 

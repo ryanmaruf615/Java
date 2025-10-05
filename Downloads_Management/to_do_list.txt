@@ -10,7 +10,7 @@
 
 * [ done] **File Scanner** → list all files in Downloads.
 * [ done ] **Extension Detection** → normalize case, handle missing extension.
-* [ ] **Mapping Rules** → extension → category.
+* [ done] **Mapping Rules** → extension → category.
 * [ ] **Dry-Run Mode** → show actions without moving.
 * [ ] **Folder Creation** → ensure subfolders exist.
 * [ ] **Move Files** → safely relocate into correct subfolders.
@@ -77,39 +77,4 @@ You can later decide format: `.json`, `.yaml`, or `.properties`.
 * `logFile` → optional log path.
 * `maxFileSizeMB` → skip files above size limit (optional).
 
----
-
-### **Example (YAML style, easier to read)**
-
-```yaml
-scanFolder: "C:/Users/Maruf/Downloads"
-
-categories:
-  pdf: "PDFs"
-  jpg: "Images"
-  jpeg: "Images"
-  png: "Images"
-  docx: "Documents"
-  doc: "Documents"
-  zip: "Archives"
-  rar: "Archives"
-  mp4: "Videos"
-  mp3: "Music"
-
-defaultCategory: "Others"
-
-conflictStrategy: "rename"   # options: rename, overwrite, skip
-excludePatterns:
-  - ".*\\.tmp"       # skip temp files
-  - ".*~"            # skip backup files
-
-hiddenFiles: false
-dryRun: true
-watchMode: false
-logFile: "organizer.log"
-maxFileSizeMB: 500
-```
-
----
-
-Would you like me to also make a **ready-to-use test config file** with 10–15 common extensions already mapped, so you can just drop it in and tweak later?
+--
