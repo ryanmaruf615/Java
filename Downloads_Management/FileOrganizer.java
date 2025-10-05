@@ -1,13 +1,20 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class FileOrganizer {
 
 
-    public void createFolders(int pdfCount){
+    public void createFolders(HashMap<String,Integer> count ){
 
-        System.out.println(pdfCount + " PDF files found fileorga.");
+        for (Map.Entry<String, Integer> entry : count.entrySet())
+        {
+            //System.out.println(entry.getKey() + ": " + entry.getValue());
+            if (entry.getValue() > 0)
+            {
+                System.out.println("Creating folder for " + entry.getKey() + " files.");
+            }
 
-        if (pdfCount > 0) {
-            System.out.println("Creating 'PDFs' folder to organize PDF files.");
-            // Code to create folder and move files can be added here
         }
+        
     }
 }
