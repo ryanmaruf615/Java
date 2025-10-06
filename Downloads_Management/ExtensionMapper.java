@@ -3,11 +3,11 @@ import java.util.HashMap;
 public class ExtensionMapper {
 
     
-    public void printFilesExtentions(java.util.List<String> fileNames)
+    public void printFilesExtentions(java.util.List<String> fileNames, java.util.List<String> folderNames, String directoryPath)
     {
         int pdfCount = 0, wordCount = 0, excelCount = 0, pptCount = 0, 
         imageCount = 0, videoCount = 0, audioCount = 0, compressedCount = 0, 
-        unknownCount = 0;
+        unknownCount = 0; 
 
         for (String names : fileNames) {
             int dotIndex = names.lastIndexOf('.');
@@ -45,11 +45,9 @@ public class ExtensionMapper {
          count.put("audio", audioCount);
          count.put("compressed", compressedCount);
          count.put("unknown", unknownCount);
-
-       
-       
+ 
         FileOrganizer fileOrganizer = new FileOrganizer();  
-        fileOrganizer.createFolders(count);   
+        fileOrganizer.createFolders(count, folderNames, directoryPath);   
         
 
     }

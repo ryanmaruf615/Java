@@ -2,10 +2,11 @@
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
 
 public class FileScanner {
     private String directoryPath = "../test_download_folder";
-
+    int folderCounter = 0;
     
     public void setDirectoryPath(String directoryPath) {
         this.directoryPath = directoryPath;
@@ -15,10 +16,12 @@ public class FileScanner {
     }
 
 
+
     // method to scan directory and count number of files and list files
     public void scanDirectory() {
         Path p = Paths.get(getDirectoryPath());
-    
+        
+        
         try
         {
             
@@ -26,19 +29,31 @@ public class FileScanner {
         //long count = Files.list(p).count();
         //System.out.println("Total files: " + count);
 
+
         // to list files
         List<String> fileNames = new ArrayList<>();
+        List<String> folderNames = new ArrayList<>();
 
         //retrive the list of files and add to arraylist
         Files.list(p).forEach(file -> {
-           String names =  file.getFileName().toString();
-            fileNames.add(names);
+
+            if(Files.isDirectory(file))
+            {
+                String fNames = file.getFileName().toString();
+                folderNames.add(fNames);
+            }
+            else if(Files.isRegularFile(file))
+            {
+                String names =  file.getFileName().toString();
+                fileNames.add(names);
+            }
         });
+
 
         // sent the list of extensions to FileExtensionMapper class 
         // Create an instance of ExtensionMapper and call the method
         ExtensionMapper extensionMapper = new ExtensionMapper();
-        extensionMapper.printFilesExtentions(fileNames);
+        extensionMapper.printFilesExtentions(fileNames, folderNames,directoryPath);
 
 
     } 
@@ -48,7 +63,5 @@ public class FileScanner {
         
     }
 
-    
-    
 
 }
