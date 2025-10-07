@@ -47,8 +47,8 @@ public class ExtensionMapper {
          count.put("compressed", compressedCount);
          count.put("unknown", unknownCount);
  
-        FileOrganizer fileOrganizer = new FileOrganizer();  
-        fileOrganizer.createFolders(count, folderNames, directoryPath);   
+        FileOrganizer fileOrganizer = new FileOrganizer(count, folderNames, directoryPath);  
+           
         
 
     }

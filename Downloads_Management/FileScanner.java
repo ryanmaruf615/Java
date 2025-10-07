@@ -2,7 +2,7 @@
 import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.File;
+
 
 public class FileScanner {
     private String directoryPath = "../test_download_folder";
@@ -53,7 +53,7 @@ public class FileScanner {
         // sent the list of extensions to FileExtensionMapper class 
         // Create an instance of ExtensionMapper and call the method
         ExtensionMapper extensionMapper = new ExtensionMapper();
-        extensionMapper.printFilesExtentions(fileNames, folderNames,directoryPath);
+        extensionMapper.printFilesExtentions(fileNames,folderNames,directoryPath);
 
 
     } 

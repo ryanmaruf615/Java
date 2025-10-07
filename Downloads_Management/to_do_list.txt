@@ -11,7 +11,7 @@
 * [ done] **File Scanner** → list all files in Downloads.
 * [ done ] **Extension Detection** → normalize case, handle missing extension.
 * [ done] **Mapping Rules** → extension → category.
-* [ ] **Dry-Run Mode** → show actions without moving.
+* [ done ] **Dry-Run Mode** → show actions without moving.
 * [ ] **Folder Creation** → ensure subfolders exist.
 * [ ] **Move Files** → safely relocate into correct subfolders.
 * [ ] **Conflict Handling** → rename/append timestamp instead of overwrite.
