@@ -7,6 +7,7 @@ public class FileScanner {
     private ExtensionMapper extensionMapper = new ExtensionMapper();
     int folderCounter = 0;
     
+    // setter and getter for directoryPath
     public void setDirectoryPath(String directoryPath) {
         this.directoryPath = directoryPath;
     }

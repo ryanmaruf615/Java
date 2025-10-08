@@ -32,6 +32,7 @@ public class ExtensionMapper {
         categorizedFiles.get(category).add(file);
     }
 
+    // map extensions to categories
     private String getCategory(String extension) {
         switch (extension) {
             case "pdf": return "pdf";
