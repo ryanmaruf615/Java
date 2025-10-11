@@ -1,6 +1,7 @@
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -11,15 +12,15 @@ public class ExtensionMapper {
 
     public ExtensionMapper() {
         // Initialize all categories with empty lists
-        categorizedFiles.put("pdf", new ArrayList<>());
-        categorizedFiles.put("word",new ArrayList<>());
-        categorizedFiles.put("excel", new ArrayList<>());
-        categorizedFiles.put("ppt", new ArrayList<>());
-        categorizedFiles.put("image", new ArrayList<>());
-        categorizedFiles.put("video", new ArrayList<>());
-        categorizedFiles.put("audio", new ArrayList<>());
-        categorizedFiles.put("compressed", new ArrayList<>());
-        categorizedFiles.put("unknown", new ArrayList<>());
+        categorizedFiles.put("pdf", new LinkedList<>());
+        categorizedFiles.put("word",new LinkedList<>());
+        categorizedFiles.put("excel", new LinkedList<>());
+        categorizedFiles.put("ppt", new LinkedList<>());
+        categorizedFiles.put("image", new LinkedList<>());
+        categorizedFiles.put("video", new LinkedList<>());
+        categorizedFiles.put("audio", new LinkedList<>());
+        categorizedFiles.put("compressed", new LinkedList<>());
+        categorizedFiles.put("unknown", new LinkedList<>());
     }
 
     // categorize a file based on its extension
