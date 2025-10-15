@@ -13,8 +13,8 @@
 * [ done] **Mapping Rules** → extension → category.
 * [ done ] **Dry-Run Mode** → show actions without moving.
 * [ done ] **Folder Creation** → ensure subfolders exist.
-* [ ] **Move Files** → safely relocate into correct subfolders.
-* [ ] **Conflict Handling** → rename/append timestamp instead of overwrite.
+* [ done ] **Move Files** → safely relocate into correct subfolders.
+* [ done ] **Conflict Handling** → rename/append timestamp instead of overwrite.
 
 ### 🔹 Robustness
 

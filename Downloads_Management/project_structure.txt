@@ -10,9 +10,9 @@ downloads-organizer/
                 └── organizer/
                     ├── App.java            # Entry point (main method)
                     ├── FileScanner.java    # List files in Downloads
-                    ├── ExtensionMapper.java# Decide category based on extension
+                    ├── ExtensionMapper.java# Decide category based on extension and Orchestrates everything
                     ├── FileMover.java      # Create folders + move files
-                    └── FileOrganizer.java  # Orchestrates everything
+                    
 
 🔑 What each class does (MVP)
 
@@ -22,7 +22,7 @@ Starts the program.
 
 Defines path to Downloads.
 
-Calls FileOrganizer to run everything.
+Calls ExtensionMapper to run everything.
 
 FileScanner.java
 
@@ -76,9 +76,8 @@ downloads-organizer/
 │   │   │           │
 │   │   │           ├── core/
 │   │   │           │   ├── FileScanner.java  # Lists files in target folder
-│   │   │           │   ├── FileOrganizer.java# Main logic: categorize & move
-│   │   │           │   ├── FileMover.java    # Handles moving + conflicts
-│   │   │           │   ├── ExtensionMapper.java # Maps ext → category
+│   │   │           │   ├── FileMover.java    # Handles create folders if needed + moving + conflicts
+│   │   │           │   ├── ExtensionMapper.java # Maps ext → category + saperate files by extensions 
 │   │   │           │   └── ConflictHandler.java # Rename / overwrite / skip
 │   │   │           │
 │   │   │           ├── util/
