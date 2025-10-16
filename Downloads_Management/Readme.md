@@ -11,7 +11,7 @@ A Java application for managing and organizing your downloads efficiently.
 
 ## Requirements
 
-- Java 8 or higher
+- Java 17 or higher
 
 ## Installation
 

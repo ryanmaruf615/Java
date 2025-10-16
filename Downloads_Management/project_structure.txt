@@ -7,8 +7,9 @@ downloads-organizer/
     └── main/
         └── java/
             └── com/
-                └── organizer/
+                └── app/
                     ├── App.java            # Entry point (main method)
+                └── core/
                     ├── FileScanner.java    # List files in Downloads
                     ├── ExtensionMapper.java# Decide category based on extension and Orchestrates everything
                     ├── FileMover.java      # Create folders + move files
