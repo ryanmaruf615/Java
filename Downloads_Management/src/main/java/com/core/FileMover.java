@@ -35,7 +35,6 @@ public class FileMover {
                         Path targetPath = targetDir.resolve(file.getFileName());
                         Files.move(file, targetPath, StandardCopyOption.REPLACE_EXISTING);
                         fileMoved = true;
-                        
                     }
                     System.out.println("Moved files" + files.size() + " to folder: " + folderName);
                 }catch(Exception e){
