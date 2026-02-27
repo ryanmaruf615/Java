@@ -15,13 +15,31 @@ public class Arrayex {
         }
     }
 
+    public void charChange(String s)
+    {
+        
+         char a[] = s.toCharArray();
+        for (char c : a)
+        {
+           if (c == 'a')
+           {
+            
+           }
+           System.out.println(c);
+        }
+        
+    } 
+
 }
+
+
 
 class MainCl{
     
     public static void main(String[] args) {
         Arrayex a = new Arrayex();
-        a.vowelCheck("LeEtCOde i love you");
+        //a.vowelCheck("LeEtCOde i love you");
+        a.charChange("banana");
     }
 }
 
